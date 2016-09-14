@@ -1,0 +1,14 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,700,300);
+$font-family-base: 'Raleway', sans-serif;
+// Import bootstrap
+@import "variables";
+@import "bootstrap";
+
+.error {
+  color: red;
+  @extend .col-md-6;
+}
+
+.fixed {
+  color: blue;
+}
