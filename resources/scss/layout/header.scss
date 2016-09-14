@@ -1,0 +1,5 @@
+.nav-container {
+  @extend .navbar;
+  @extend .navbar-default;
+  @extend .navbar-fixed-top;
+}

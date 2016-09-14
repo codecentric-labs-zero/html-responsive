@@ -1,0 +1,8 @@
+// Custom variables for overriding bootstrap's
+@import "variables";
+
+// Import bootstrap
+//noinspection CssUnknownTarget
+@import "bootstrap";
+
+@import "layout/header";
