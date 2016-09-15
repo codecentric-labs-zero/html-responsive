@@ -3,10 +3,11 @@ var rename = require('gulp-rename');
 var sass = require('gulp-sass');
 
 var config = {
-    bootstrapDir: './bower_components/bootstrap-sass',
-    jqueryDir: './bower_components/jquery',
-	styleDir: './resources/scss/*.scss',
-    publicDir: './dist',
+  bootstrapDir: './bower_components/bootstrap-sass',
+  jqueryDir: './bower_components/jquery',
+  styleDir: './resources/scss/*.scss',
+  publicDir: './dist',
+  imageFiles: './resources/img/*'
 };
 
 gulp.task('css', function() {
@@ -15,7 +16,7 @@ gulp.task('css', function() {
         includePaths: [config.bootstrapDir + '/assets/stylesheets']
     }))
     .pipe(rename('app.css'))
-    .pipe(gulp.dest(config.publicDir + '/css'));
+    .pipe(gulp.dest(config.publicDir + '/css'))
 });
 
 gulp.task('js', function() {
@@ -28,8 +29,13 @@ gulp.task('fonts', function() {
     .pipe(gulp.dest(config.publicDir + '/fonts'));
 });
 
+gulp.task('images', function() {
+  return gulp.src(config.imageFiles)
+    .pipe(gulp.dest(config.publicDir + '/img'));
+});
+
 gulp.task('watch', function() {
 	gulp.watch(config.styleDir, ['css']);
 });
 
-gulp.task('default', ['css', 'js', 'fonts']);
+gulp.task('default', ['css', 'js', 'fonts', 'images']);
